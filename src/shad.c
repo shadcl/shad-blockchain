@@ -13,7 +13,7 @@
  */
 int
 shad_collection_add_block (shad_block_t *block,
-			   struct shad_database_collection *coll,
+			   struct shad_collection_handle *coll,
 			   shad_block_key_t *key)
 {
   off_t pos;
@@ -48,7 +48,7 @@ shad_collection_add_block (shad_block_t *block,
  */
 int
 shad_index_add_block_key (shad_block_key_t key,
-			  struct shad_database_index *index,
+			  struct shad_index_handle *index,
 			  shad_ordinal_t *ordinal)
 {
   if (write (index->fd, &(key), sizeof(key)) == -1)
@@ -66,8 +66,8 @@ shad_index_add_block_key (shad_block_key_t key,
  * the command line.
  */
 shad_block_t*
-shad_fetch_block (shad_ordinal_t pos, struct shad_database_index *index,
-		  struct shad_database_collection *coll)
+shad_fetch_block (shad_ordinal_t pos, struct shad_index_handle *index,
+		  struct shad_collection_handle *coll)
 {
   shad_nsize_t size;
   shad_block_key_t key;
@@ -165,8 +165,8 @@ shad_get_nonce ()
  */
 int
 shad_block_commit (shad_block_t *block, shad_block_t *parent,
-		   struct shad_database_index *index,
-		   struct shad_database_collection *coll,
+		   struct shad_index_handle *index,
+		   struct shad_collection_handle *coll,
 		   shad_ordinal_t *ordinal)
 {
   int ret = -1;
@@ -186,8 +186,8 @@ shad_block_commit (shad_block_t *block, shad_block_t *parent,
  * The root is used for block ordinals > 0
  */
 shad_block_t*
-shad_generate_root_block (struct shad_database_index *index,
-			  struct shad_database_collection *coll)
+shad_generate_root_block (struct shad_index_handle *index,
+			  struct shad_collection_handle *coll)
 {
   char data[] = "What doesn't bend, breaks.";
   size_t data_len = strlen (data);
@@ -235,8 +235,8 @@ main (int argc, char **argv)
     { '\0' };
   int path_len;
   int empty_coll;
-  struct shad_database_index index;
-  struct shad_database_collection coll;
+  struct shad_index_handle index;
+  struct shad_collection_handle coll;
   shad_block_t *root = NULL;
   char *buffer = NULL;
   size_t input_len;

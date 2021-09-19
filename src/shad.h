@@ -37,30 +37,30 @@ struct shad_block
 };
 typedef struct shad_block shad_block_t;
 
-struct shad_database_index
+struct shad_index_handle
 {
   int fd;
   struct stat stat;
   shad_ordinal_t seq_head;
 };
 
-struct shad_database_collection
+struct shad_collection_handle
 {
   int fd;
   struct stat stat;
 };
 
 int
-shad_collection_add_block (shad_block_t*, struct shad_database_collection*,
+shad_collection_add_block (shad_block_t*, struct shad_collection_handle*,
 			   shad_block_key_t*);
 
 int
-shad_index_add_block_key (shad_block_key_t, struct shad_database_index*,
+shad_index_add_block_key (shad_block_key_t, struct shad_index_handle*,
 			  shad_ordinal_t*);
 
 shad_block_t*
-shad_fetch_block (shad_ordinal_t, struct shad_database_index*,
-		  struct shad_database_collection*);
+shad_fetch_block (shad_ordinal_t, struct shad_index_handle*,
+		  struct shad_collection_handle*);
 
 shad_block_t*
 shad_block_create (char*, size_t);
@@ -75,12 +75,12 @@ extern int
 shad_block_hash (shad_block_t*, shad_block_t*);
 
 int
-shad_commit_block (shad_block_t*, shad_block_t*, struct shad_database_index*,
-		   struct shad_database_collection*);
+shad_commit_block (shad_block_t*, shad_block_t*, struct shad_index_handle*,
+		   struct shad_collection_handle*);
 
 shad_block_t*
-shad_generate_root_block (struct shad_database_index*,
-			  struct shad_database_collection*);
+shad_generate_root_block (struct shad_index_handle*,
+			  struct shad_collection_handle*);
 
 extern void
 shad_print_block (shad_block_t*);
