@@ -218,10 +218,10 @@ shad_usage (const char *program)
   printf (" Examples:\n");
   printf ("  Commit JSON data 100 times:\n");
   printf (
-      "    echo -n '{\"token_id\":\"ERC-20\",\"sender\":\"john\",\"recipient\":\"john\"}' | %s -c -n 100\n",
+      "    echo -n '{"key":"value"}' | %s -c -n 100\n",
       program);
   printf ("  Fetch block information:\n");
-  printf ("    %s -k 200\n", program);
+  printf ("    %s -k 20\n", program);
 }
 
 int
