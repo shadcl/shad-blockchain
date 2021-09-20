@@ -25,7 +25,13 @@ typedef union
 {
   unsigned char bytes[sizeof(off_t)];
   off_t value;
-} shad_nsize_t, shad_block_key_t;
+} shad_block_key_t;
+
+typedef union
+{
+  unsigned char bytes[sizeof(size_t)];
+  size_t value;
+} shad_nsize_t;
 
 struct shad_block
 {
