@@ -332,16 +332,20 @@ main (int argc, char **argv)
 		}
 	      if (block != NULL)
 		{
-		  parent = shad_fetch_block (index.seq_head, &(index), &(coll));
-		  if (parent != NULL)
+		  for (copy_it = 0; copy_it < copy_count; copy_it++)
 		    {
-		      for (copy_it = 0; copy_it < copy_count; copy_it++)
+		      parent = shad_fetch_block (index.seq_head, &(index),
+						 &(coll));
+		      if (parent != NULL)
 			{
 			  if (shad_block_commit (block, parent, &(index),
 						 &(coll), &(ordinal)) == 0)
 			    {
 			      printf ("%zu\n", ordinal);
 			    }
+			  free (parent->data);
+			  shad_block_destroy (parent);
+			  parent = NULL;
 			}
 		    }
 		}
@@ -391,11 +395,6 @@ main (int argc, char **argv)
   if (block != NULL)
     {
       shad_block_destroy (block);
-    }
-  if (parent != NULL)
-    {
-      free (parent->data);
-      shad_block_destroy (parent);
     }
   close (index.fd);
   close (coll.fd);
