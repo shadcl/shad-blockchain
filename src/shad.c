@@ -8,7 +8,7 @@
 #include <mhash.h>
 #include <sys/stat.h>
 
-/* Adds a block to a connection
+/* Adds a block to a collection
  * Assumes the block has all its members ready for storage.
  */
 int
