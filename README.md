@@ -24,5 +24,27 @@ data ---------------------------------------------------------------------------
 6e 6f 20 6d 6f 72 65 20 73 74 72 69 6e 67 73 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 ```
 
+#### Using your own hashing algorithm and output format
+Following commands will build from source, install the binary and run a few example operations.
+```c
+#include <shad.h>
+
+/* Define your hashing logic
+ */
+int
+shad_block_hash (shad_block_t *block, shad_block_t *parent)
+{
+  int ret = -1; /* 0 (success) or -1 (failure) */
+  /* TIGER HASH? */
+  return ret;
+}
+
+void
+shad_print_block (shad_block_t *block)
+{
+    /* Print JSON to stdout? */
+}
+```
+
 #### Dependencies
 mhash &mdash; http://mhash.sourceforge.net/
