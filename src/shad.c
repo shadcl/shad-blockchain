@@ -345,7 +345,6 @@ main (int argc, char **argv)
 			    }
 			  free (parent->data);
 			  shad_block_destroy (parent);
-			  parent = NULL;
 			}
 		    }
 		}
