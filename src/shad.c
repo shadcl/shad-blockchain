@@ -47,8 +47,7 @@ shad_collection_add_block (shad_block_t *block,
 /* Adds a block key to the index.
  */
 int
-shad_index_add_block_key (shad_block_key_t key,
-			  struct shad_index_handle *index,
+shad_index_add_block_key (shad_block_key_t key, struct shad_index_handle *index,
 			  shad_ordinal_t *ordinal)
 {
   if (write (index->fd, &(key), sizeof(key)) == -1)
@@ -166,8 +165,7 @@ shad_get_nonce ()
 int
 shad_block_commit (shad_block_t *block, shad_block_t *parent,
 		   struct shad_index_handle *index,
-		   struct shad_collection_handle *coll,
-		   shad_ordinal_t *ordinal)
+		   struct shad_collection_handle *coll, shad_ordinal_t *ordinal)
 {
   int ret = -1;
   shad_block_key_t key;
@@ -318,34 +316,34 @@ main (int argc, char **argv)
 
       /* load the collection */
       coll.fd = open (path, SHAD_WRITE_FLAGS, SHAD_OPEN_MODE);
-      if (coll.fd == -1)
-	exit (EXIT_FAILURE);
-
-      /* generate the root block, if the logs is empty */
-      if (empty_coll)
+      if (coll.fd != -1)
 	{
-	  root = shad_generate_root_block (&(index), &(coll));
-	}
-
-      if (!empty_coll || (empty_coll && root != NULL))
-	{
-	  buffer = malloc (SHAD_INPUT_BUFFER_SIZE);
-	  if (buffer != NULL)
+	  /* generate the root block, if the logs is empty */
+	  if (empty_coll)
 	    {
-	      input_len = fread (buffer, 1, SHAD_INPUT_BUFFER_SIZE, stdin);
-	      block = shad_block_create (buffer, input_len);
+	      root = shad_generate_root_block (&(index), &(coll));
 	    }
-	  if (block != NULL)
+
+	  if (!empty_coll || (empty_coll && root != NULL))
 	    {
-	      parent = shad_fetch_block (index.seq_head, &(index), &(coll));
-	      if (parent != NULL)
+	      buffer = malloc (SHAD_INPUT_BUFFER_SIZE);
+	      if (buffer != NULL)
 		{
-		  for (copy_it = 0; copy_it < copy_count; copy_it++)
+		  input_len = fread (buffer, 1, SHAD_INPUT_BUFFER_SIZE, stdin);
+		  block = shad_block_create (buffer, input_len);
+		}
+	      if (block != NULL)
+		{
+		  parent = shad_fetch_block (index.seq_head, &(index), &(coll));
+		  if (parent != NULL)
 		    {
-		      if (shad_block_commit (block, parent, &(index), &(coll),
-					     &(ordinal)) == 0)
+		      for (copy_it = 0; copy_it < copy_count; copy_it++)
 			{
-			  printf ("%zu\n", ordinal);
+			  if (shad_block_commit (block, parent, &(index),
+						 &(coll), &(ordinal)) == 0)
+			    {
+			      printf ("%zu\n", ordinal);
+			    }
 			}
 		    }
 		}
@@ -370,16 +368,16 @@ main (int argc, char **argv)
 
       /* load the collection */
       coll.fd = open (path, SHAD_READ_FLAGS, SHAD_OPEN_MODE);
-      if (coll.fd == -1)
-	exit (EXIT_FAILURE);
-
-      /* cast the ordinal identifier */
-      if (sscanf (kopt, "%zu", &(ordinal)))
+      if (coll.fd != -1)
 	{
-	  block = shad_fetch_block (ordinal, &(index), &(coll));
-	  if (block != NULL)
+	  /* cast the ordinal identifier */
+	  if (sscanf (kopt, "%zu", &(ordinal)))
 	    {
-	      shad_print_block (block);
+	      block = shad_fetch_block (ordinal, &(index), &(coll));
+	      if (block != NULL)
+		{
+		  shad_print_block (block);
+		}
 	    }
 	}
     }
