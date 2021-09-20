@@ -56,4 +56,4 @@ shad_print_block (shad_block_t *block)
 mhash &mdash; http://mhash.sourceforge.net/
 
 #### C89
-Compile with c89 yourself, but it _should_ be compatible. It wasn't a requirement.
+Compile with c89 yourself, but it _should_ be compliant. It wasn't a requirement.
