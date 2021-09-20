@@ -1,5 +1,5 @@
 # Shad blockchain
-Tiny blockchain I developed to support my arguments in an ongoing debate with a few colleagues.
+A tiny blockchain I developed for reference in an ongoing debate with a few colleagues regarding embedded blockchain viability.
 
 #### Get Started
 Following commands will build from source, install the binary and run a few example operations.
