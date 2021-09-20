@@ -163,7 +163,7 @@ shad_get_nonce ()
  * This function and all subsequent instructions are atomic.
  */
 int
-shad_block_commit (shad_block_t *block, shad_block_t *parent,
+shad_commit_block (shad_block_t *block, shad_block_t *parent,
 		   struct shad_index_handle *index,
 		   struct shad_collection_handle *coll, shad_ordinal_t *ordinal)
 {
@@ -196,7 +196,7 @@ shad_generate_root_block (struct shad_index_handle *index,
   block = shad_block_create (data, data_len);
   parent = shad_block_create ("", 0);
 
-  if (shad_block_commit (block, parent, index, coll, &(ordinal)) == -1)
+  if (shad_commit_block (block, parent, index, coll, &(ordinal)) == -1)
     {
       shad_block_destroy (block);
       block = NULL;
@@ -339,7 +339,7 @@ main (int argc, char **argv)
 						     &(coll));
 			  if (parent != NULL)
 			    {
-			      if (shad_block_commit (block, parent, &(index),
+			      if (shad_commit_block (block, parent, &(index),
 						     &(coll), &(ordinal)) == 0)
 				{
 				  printf ("%zu\n", ordinal);
