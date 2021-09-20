@@ -23,7 +23,7 @@ typedef long shad_nonce_t;
 
 typedef union
 {
-  unsigned char bytes[sizeof(off_t)];
+  char bytes[sizeof(off_t)];
   off_t value;
 } shad_block_key_t;
 
