@@ -4,6 +4,7 @@ Tiny blockchain I developed to support my arguments in an ongoing debate I'm end
 #### Get Started
 Following commands will build from source, install the binary and run a few example operations.
 ```sh
+autoreconf -fi
 ./configure
 make
 sudo make install
