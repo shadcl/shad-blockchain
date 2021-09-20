@@ -24,7 +24,7 @@ data ---------------------------------------------------------------------------
 6e 6f 20 6d 6f 72 65 20 73 74 72 69 6e 67 73 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 ```
 
-#### Compile with atomicity for compliance with Two-commit phase standards
+#### Compile with atomicity for compliance with Two-phase commit protocol standards.
 Committing to the blockchain will be slower, but data integrity will be higher.
 ```sh
 -DSHAD_DATA_ATOMICITY
