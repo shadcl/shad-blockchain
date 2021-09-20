@@ -81,8 +81,9 @@ extern int
 shad_block_hash (shad_block_t*, shad_block_t*);
 
 int
-shad_commit_block (shad_block_t*, shad_block_t*, struct shad_index_handle*,
-		   struct shad_collection_handle*);
+shad_commit_block (shad_block_t *, shad_block_t *,
+      struct shad_index_handle *,
+      struct shad_collection_handle *, shad_ordinal_t *);
 
 shad_block_t*
 shad_generate_root_block (struct shad_index_handle*,
