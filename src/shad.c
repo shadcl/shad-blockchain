@@ -215,9 +215,7 @@ shad_usage (const char *program)
   printf ("Usage: %s [...]\n", program);
   printf (" Examples:\n");
   printf ("  Commit JSON data 100 times:\n");
-  printf (
-      "    echo -n '{"key":"value"}' | %s -c -n 100\n",
-      program);
+  printf ("    echo -n '{\"key\":\"value\"}' | %s -c -n 100\n", program);
   printf ("  Fetch block information:\n");
   printf ("    %s -k 20\n", program);
 }
