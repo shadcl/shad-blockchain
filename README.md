@@ -1,6 +1,9 @@
 # Shad blockchain
 A tiny blockchain I developed for reference in an ongoing debate with a few colleagues regarding embedded blockchain viability.
 
+#### Naming conventions
+Source files ending with *ing* to form a verbal noun contain functioning related code.
+
 #### Get Started
 Following commands will build from source, install the binary and run a few example operations.
 ```sh
@@ -33,7 +36,7 @@ Committing to the blockchain will be slower, but data integrity will be greater.
 #### Using your own hashing algorithm and output format
 If you want to use your own hashing algo and output format, here are example definitions.
 ```c
-#include <shad.h>
+#include <shad_chaining.h>
 
 /* Define your hashing logic
  */
