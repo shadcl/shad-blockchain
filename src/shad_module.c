@@ -1,12 +1,16 @@
-#include <shad.h>
-
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <time.h>
 #include <mhash.h>
 #include <sys/stat.h>
+
+#include "shad_types.h"
+#include "shad_block.h"
+#include "shad_chaining.h"
+#include "shad.h"
 
 /* Hashes a block for a given parent
  * Assumes the block data and parent hash are ready for storage.
