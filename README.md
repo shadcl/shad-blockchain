@@ -2,7 +2,10 @@
 A tiny blockchain I developed for reference in an ongoing debate with a few colleagues regarding embedded blockchain viability.
 
 #### Naming conventions
-Source files ending with *ing* to form a verbal noun contain functioning related code.
+Source files ending with **-ing** to form a verbal noun contain functioning related code.
+
+* src/shad_chain**ing**.c &mdash; blockchain function definitions
+* src/shad_databas**ing**.c &mdash; database function definitions
 
 #### Get Started
 Following commands will build from source, install the binary and run a few example operations.
