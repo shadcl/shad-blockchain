@@ -30,3 +30,9 @@ shad_path_join (int argc, ...)
 
   return path;
 }
+
+void
+shad_free_path (char *path)
+{
+  free (path);
+}

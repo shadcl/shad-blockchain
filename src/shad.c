@@ -5,7 +5,7 @@
 
 #include "shad_types.h"
 #include "shad_block.h"
-#include "collection.h"
+#include "shad_collection.h"
 #include "shad_index.h"
 #include "shad_chaining.h"
 #include "shad_databasing.h"
