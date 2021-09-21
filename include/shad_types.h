@@ -5,6 +5,7 @@
 #include <sys/types.h>
 
 typedef off_t shad_ordinal_t;
+
 typedef long shad_nonce_t;
 
 typedef union
