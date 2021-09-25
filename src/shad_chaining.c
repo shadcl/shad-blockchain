@@ -1,12 +1,14 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include <time.h>
 
 #include "shad_types.h"
 #include "shad_block.h"
 #include "shad_collection.h"
 #include "shad_index.h"
+#include "shad_databasing.h"
 #include "shad_chaining.h"
 
 /* Fetches a block for a given ordinal position.
