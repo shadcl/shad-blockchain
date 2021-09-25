@@ -5,6 +5,6 @@ char*
 shad_path_join (int, ...);
 
 void
-shad_free_path (char*);
+shad_path_free (char*);
 
 #endif /* FS_FILING_H_ */
