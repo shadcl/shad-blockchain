@@ -157,7 +157,7 @@ main (int argc, char **argv)
 			      if (shad_commit_block (block, parent, &(index),
 						     &(coll), &(ordinal)) == 0)
 				{
-				  printf ("%zu\n", ordinal);
+				  printf ("%zu\n", (ordinal+1));
 				}
 			      free (parent->data);
 			      shad_block_destroy (parent);
