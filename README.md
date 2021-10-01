@@ -50,12 +50,16 @@ shad_block_hash (shad_block_t *block, shad_block_t *parent)
   /* TIGER HASH? */
   return ret;
 }
+EXPORT_SYMBOL(shad_block_hash);
 
 void
 shad_print_block (shad_block_t *block)
 {
     /* Print JSON to stdout? */
 }
+EXPORT_SYMBOL(shad_print_block);
+
+/* modify the Makefile */
 ```
 
 #### Dependencies
