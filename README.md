@@ -25,7 +25,7 @@ shad -k 25
 shad -k 73
 ```
 
-##### Sample output
+##### Output block sample
 ```
 hash ------------------------------------------------------------------------------------------
 6f239f22a146370d041d250b949f129214181ca1eee93a60b4871528f5a
@@ -42,7 +42,7 @@ Committing to the blockchain will be slower, but data integrity will be greater.
 ```
 
 #### Using your own hashing algorithm and output format
-If you want to use your own hashing algo and output format, here are example definitions.
+If you want to use your own hashing algo and output format, here are sample definitions.
 ```c
 #include <shad_chaining.h>
 
