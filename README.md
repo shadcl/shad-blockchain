@@ -1,7 +1,11 @@
 # Shad blockchain
 A tiny blockchain I developed for reference in an ongoing debate with a few colleagues regarding embedded blockchain viability.
 
+This project is intended 
+
 #### What is a blockchain?
+Shad-blockchain was intended as a primer for a decentralized version of shad-blockchain. 
+
 The term "blockchain" is often used interchangeably with "decentralized blockchain," which causes confusion. A blockchain, as its name suggests, is simply a growing list of blocks linked together using cryptography.
 
 Shad-blockchain is not a decentralized blockchain, but a tiny blockchain that you can add blocks to from the command line.
