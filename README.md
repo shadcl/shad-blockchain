@@ -1,7 +1,5 @@
 # Shad blockchain
-A tiny blockchain I developed for reference in an ongoing debate with a few colleagues regarding embedded blockchain viability.
-
-Shad-blockchain was intended as a primer for a decentralized version of shad-blockchain. 
+Shad-blockchain is a tiny blockchain I developed for academic purposes, and someday I might extend it to a decentralized version.
 
 #### What is a blockchain?
 
